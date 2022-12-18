@@ -91,13 +91,15 @@ static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL };
 static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
 
 /* kb layout */
-static const char *cg_layout[] = {"/home/gleipnir/bin/switch_kbd_locale", NULL};
+static const char *cg_layout[] = {"switch_kbd_locale", NULL};
+static const char *cg_bg[] = {"wper", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn, {.v = brightnessup} },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn, {.v = brightnessdown} },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = cg_layout} },
+	{ MODKEY,						XK_w,      spawn,          {.v = cg_bg} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flameshot} },
