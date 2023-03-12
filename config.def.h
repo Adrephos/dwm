@@ -1,6 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-#include <X11/XF86keysym.h>
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
@@ -86,18 +84,12 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *spotify[]  = { "spotify", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 
-/* backlight */
-static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL };
-static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
-
 /* kb layout */
 static const char *cg_layout[] = {"switch_kbd_locale", NULL};
 static const char *cg_bg[] = {"wper", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                            XF86XK_MonBrightnessUp,    spawn, {.v = brightnessup} },
-	{ 0,                            XF86XK_MonBrightnessDown,  spawn, {.v = brightnessdown} },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = cg_layout} },
 	{ MODKEY,						XK_w,      spawn,          {.v = cg_bg} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -146,7 +138,6 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
