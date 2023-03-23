@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
@@ -84,12 +85,18 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *spotify[]  = { "spotify", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 
+/* backlight */
+static const char *brightnessup[] = { "light", "-A", "5", NULL };
+static const char *brightnessdown[] = { "light", "-U", "5", NULL };
+
 /* kb layout */
 static const char *cg_layout[] = {"switch_kbd_locale", NULL};
 static const char *cg_bg[] = {"wper", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,                            XF86XK_MonBrightnessUp,    spawn, {.v = brightnessup} },
+	{ 0,                            XF86XK_MonBrightnessDown,  spawn, {.v = brightnessdown} },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = cg_layout} },
 	{ MODKEY,						XK_w,      spawn,          {.v = cg_bg} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
