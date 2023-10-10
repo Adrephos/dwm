@@ -89,6 +89,11 @@ static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char *brightnessup[] = { "light", "-A", "5", NULL };
 static const char *brightnessdown[] = { "light", "-U", "5", NULL };
 
+/* spotify music control */
+static const char *play[] = { "splay", NULL };
+static const char *next[] = { "snext", NULL };
+static const char *prev[] = { "sprev", NULL };
+
 /* kb layout */
 static const char *cg_layout[] = {"switch_kbd_locale", NULL};
 static const char *cg_bg[] = {"wper", NULL};
@@ -97,6 +102,9 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn, {.v = brightnessup} },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn, {.v = brightnessdown} },
+	{ 0,                            XF86XK_AudioPlay,					 spawn, {.v = play} },
+	{ 0,                            XF86XK_AudioPrev,					 spawn, {.v = prev} },
+	{ 0,                            XF86XK_AudioNext,					 spawn, {.v = next} },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = cg_layout} },
 	{ MODKEY,						XK_w,      spawn,          {.v = cg_bg} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
