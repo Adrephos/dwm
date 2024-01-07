@@ -83,6 +83,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", gray2, "-nf", white, "-sb", blue, "-sf", gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *spotify[]  = { "spotify", NULL };
+static const char *yt_music[]  = { "youtube-music", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 
 /* backlight */
@@ -106,11 +107,12 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioPrev,					 spawn, {.v = prev} },
 	{ 0,                            XF86XK_AudioNext,					 spawn, {.v = next} },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = cg_layout} },
-	{ MODKEY,						XK_w,      spawn,          {.v = cg_bg} },
+	{ MODKEY,												XK_w,			 spawn,					 {.v = cg_bg} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flameshot} },
 	{ MODKEY|ControlMask,           XK_s,      spawn,          {.v = spotify} },
+	{ MODKEY|ControlMask,           XK_y,      spawn,          {.v = yt_music} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
