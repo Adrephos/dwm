@@ -868,6 +868,7 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
 	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
 	drw_rect(drw, x, 0, w, bh, 1, 1);
+	x -= getsystraywidth();
 	x++;
 
 	/* process status text */
