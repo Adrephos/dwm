@@ -74,6 +74,9 @@ static const Layout layouts[] = {
 #define AudioPlay XF86XK_AudioPlay
 #define AudioPrev XF86XK_AudioPrev
 #define AudioNext XF86XK_AudioNext
+#define AudioMute XF86XK_AudioMute
+#define AudioUp XF86XK_AudioRaiseVolume
+#define AudioDown XF86XK_AudioLowerVolume	
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -95,10 +98,13 @@ static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static const char *brightnessup[] = { "brillo", "-A", "5", NULL };
 static const char *brightnessdown[] = { "brillo", "-U", "5", NULL };
 
-/* spotify music control */
+/* audio control */
 static const char *play[] = { "playerctl", "play-pause" };
 static const char *next[] = { "playerctl", "next" };
 static const char *prev[] = { "playerctl", "previous" };
+static const char *volup[] = { "pulseaudio-ctl", "up" };
+static const char *voldown[] = { "pulseaudio-ctl", "down" };
+static const char *volmute[] = { "pulseaudio-ctl", "mute" };
 
 /* kb layout */
 static const char *cg_layout[] = {"switch_kbd_locale", NULL};
@@ -111,6 +117,9 @@ static Key keys[] = {
 	{ 0,                            AudioPlay,     spawn,          {.v = play} },
 	{ 0,                            AudioPrev,     spawn,          {.v = prev} },
 	{ 0,                            AudioNext,     spawn,          {.v = next} },
+	{ 0,                            AudioMute,     spawn,          {.v = volmute} },
+	{ 0,                            AudioUp,       spawn,          {.v = volup} },
+	{ 0,                            AudioDown,     spawn,          {.v = voldown} },
 	{ MODKEY|ShiftMask,             XK_l,          spawn,          {.v = cg_layout} },
 	{ MODKEY,                       XK_w,          spawn,          {.v = cg_bg} },
 	{ MODKEY,                       XK_p,          spawn,          {.v = dmenucmd } },
