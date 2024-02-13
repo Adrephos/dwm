@@ -69,14 +69,18 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+
 #define BrightUp XF86XK_MonBrightnessUp
 #define BrightDown XF86XK_MonBrightnessDown
+
 #define AudioPlay XF86XK_AudioPlay
 #define AudioPrev XF86XK_AudioPrev
 #define AudioNext XF86XK_AudioNext
+
 #define AudioMute XF86XK_AudioMute
 #define AudioUp XF86XK_AudioRaiseVolume
 #define AudioDown XF86XK_AudioLowerVolume	
+
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -99,12 +103,12 @@ static const char *brightnessup[] = { "brillo", "-A", "5", NULL };
 static const char *brightnessdown[] = { "brillo", "-U", "5", NULL };
 
 /* audio control */
-static const char *play[] = { "playerctl", "play-pause" };
-static const char *next[] = { "playerctl", "next" };
-static const char *prev[] = { "playerctl", "previous" };
-static const char *volup[] = { "pulseaudio-ctl", "up" };
-static const char *voldown[] = { "pulseaudio-ctl", "down" };
-static const char *volmute[] = { "pulseaudio-ctl", "mute" };
+static const char *playpause[] = { "playerctl", "play-pause", NULL };
+static const char *next[] = { "playerctl", "next", NULL };
+static const char *prev[] = { "playerctl", "previous", NULL };
+static const char *volup[] = { "pulseaudio-ctl", "up", NULL };
+static const char *voldown[] = { "pulseaudio-ctl", "down", NULL };
+static const char *volmute[] = { "pulseaudio-ctl", "mute", NULL };
 
 /* kb layout */
 static const char *cg_layout[] = {"switch_kbd_locale", NULL};
@@ -114,7 +118,7 @@ static Key keys[] = {
 	/* modifier                     key            function        argument */
 	{ 0,                            BrightUp,      spawn,          {.v = brightnessup} },
 	{ 0,                            BrightDown,    spawn,          {.v = brightnessdown} },
-	{ 0,                            AudioPlay,     spawn,          {.v = play} },
+	{ 0,                            AudioPlay,     spawn,          {.v = playpause} },
 	{ 0,                            AudioPrev,     spawn,          {.v = prev} },
 	{ 0,                            AudioNext,     spawn,          {.v = next} },
 	{ 0,                            AudioMute,     spawn,          {.v = volmute} },
